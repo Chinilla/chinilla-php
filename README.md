@@ -1,93 +1,93 @@
 <h1 align="center">Chinilla-PHP</h1>
 
-## 概述
+## Overview
 
-Chinilla-PHP 支持奇亚的 HCX 中获取当前区块链信息、获取当前高度、获取当前网络信息、创建新钱包、生成助记词、发起交易、获取交易记录等功能。
+Chinilla-PHP supports the functions of obtaining current blockchain information, obtaining current altitude, obtaining current network information, creating new wallets, generating mnemonics, initiating transactions, and obtaining transaction records in Chinilla's HCX.
 
-## 支持方法
+## Supported Methods
 
-### 节点
+### Node
 
-#### 区块链
+#### Blockchain
 
-- ✅当前区块链信息 `getBlockchainState()`
-- ✅通过 `header_hash` 获取完整区块 `getBlock()`
-- ✅获取完整区块列表 `getBlocks()`
-- ✅通过 `height` 获取块记录 `getBlockRecordByHeight()`
-- ✅通过 `header_hash` 获取块记录 `getBlockRecord()`
-- ✅获取块记录列表 `getBlockRecords()`
-- ✅获取未完成的头部块 `getUnfinishedBlockHeaders()`
-- ✅获取总绘制空间的估计值 `getNetworkSpace()`
-- ✅获取块的币种增删记录 `getAdditionsAndRemovals()`
-- ✅获取区块链的初始冻结期 `getInitialFreezePeriod()`
-- ✅获取当前网络信息 `getNetworkInfo()`
+- ✅ Current blockchain information `getBlockchainState()`
+- ✅ Get the full block via `getBlock(header_hash)`
+- ✅ Get the full block list `getBlocks()`
+- ✅ Get block record by `getBlockRecordByHeight(height)`
+- ✅ Get block record via `getBlockRecord(header_hash)`
+- ✅ Get a list of block records `getBlockRecords()`
+- ✅ Get unfinished header blocks `getUnfinishedBlockHeaders()`
+- ✅ Get an estimate of the total drawing space `getNetworkSpace()`
+- ✅ Get the block's currency addition and deletion records `getAdditionsAndRemovals()`
+- ✅ Get the initial freezing period of the blockchain `getInitialFreezePeriod()`
+- ✅ Get current network information `getNetworkInfo()`
 
-#### 币种
+#### Currency
 
-- ✅通过 `PuzzleHash` 获取币种记录 `getCoinRecordsByPuzzleHash()`
-- ✅通过数组 `PuzzleHash` 获取币种记录 `getCoinRecordsByPuzzleHashes()`
-- ✅通过 `币种名称/ID` 获取币种记录 `getCoinRecordByName()`
-- 🚧 推送交易包到内存池和区块链 `pushTx()`
+- ✅ Get coin records through `getCoinRecordsByPuzzleHash(puzzle_hash)`
+- ✅ Get coin records through array `getCoinRecordsByPuzzleHashes(array(puzzle_hash, puzzle_hash, ...))`
+- ✅ Get coin record `getCoinRecordByName(coin_name)`
+- 🚧 Push transaction packets to mempool and blockchain `pushTx()`
 
-#### 内存池
+#### Memory Pool
 
-- ✅获取交易ID(花费捆绑哈希)列表`getAllMempoolTxIds()`
-- ✅获取内存池项目 `getAllMempoolItems()`
-- ✅通过 `交易ID` 获取内存池项目 `getMempoolItemByTxId()`
+- ✅ Get list of transaction IDs (spend bundle hash) `getAllMempoolTxIds()`
+- ✅ Get mempool items `getAllMempoolItems()`
+- ✅ Get mempool item `getMempoolItemByTxId(transaction_id)`
 
-### 钱包
+### Wallet
 
-#### 密钥管理
+#### Key Management
 
-- ✅指定 `finger` 为激活状态 `logIn()`
-- ✅获取钱包公钥 `getPublicKeys()`
-- ✅获取钱包私钥 `getPrivateKey()`
-- ✅生成助记词 `generateMnemonic()`
-- ✅添加钥匙串 `addKey()`
-- ✅删除私钥 `deleteKey()`
-- ✅删除所有私钥 `deleteAllKeys()`
+- ✅ Specify as active `logIn(fingerprint)`
+- ✅ Get wallet public key `getPublicKeys()`
+- ✅ Get wallet private key `getPrivateKey()`
+- ✅ Generate mnemonic `generateMnemonic()`
+- ✅ Add keychain `addKey()`
+- ✅ Delete the private key `deleteKey()`
+- ✅ Delete all private keys `deleteAllKeys()`
 
-#### 钱包节点
+#### Wallet Node
 
-- ✅获取钱包同步状态 `getSyncStatus()`
-- ✅获取当前高度 `getHeightInfo()`
-- ✅农场块`farmBlock()`
-- ✅获取区块链初始冻结期 `getInitialFreezePeriod()`
-- ✅获取当前网络信息 `getNetworkInfo()`
+- ✅ Get wallet sync status `getSyncStatus()`
+- ✅ Get the current height `getHeightInfo()`
+- ✅ farm block `farmBlock()`
+- ✅ Get the initial freezing period of the blockchain `getInitialFreezePeriod()`
+- ✅ Get current network information `getNetworkInfo()`
 
-#### 钱包管理
+#### Wallet Management
 
-- ✅获取钱包列表 `getWallets()`
-- 🚧 创建新钱包 `createNewWallet()`
+- ✅ Get list of wallets `getWallets()`
+- 🚧 Create a new wallet `createNewWallet()`
 
-#### 钱包
+#### Wallet
 
-- ✅获取钱包余额 `getWalletBalance()`
-- ✅通过 `交易hash` 获取交易记录 `getTransaction()`
-- ✅获取交易记录 `getTransactions()`
-- ✅获取新地址 `getNextAddress()`
-- ✅发起交易 `sendTransaction()`
-- ✅创建备份 `createBackup()`
-- ✅获取钱包交易数量 `getTransactionCount()`
-- ✅获取农场奖励信息 `getFarmedAmount()`
+- ✅ Get wallet balance `getWalletBalance()`
+- ✅ Get transaction records through `transaction hash` `getTransaction()`
+- ✅ Get transaction records `getTransactions()`
+- ✅ Get new address `getNextAddress()`
+- ✅Initiate transaction `sendTransaction()`
+- ✅ Create backup `createBackup()`
+- ✅ Get the number of wallet transactions `getTransactionCount()`
+- ✅ Get farm reward information `getFarmedAmount()`
 - 🚧 `createSignedTransaction()`
 
-#### 其他币种和交易 🚧 
-#### DID 钱包 🚧 
-#### RL 钱包 🚧 
+#### Other currencies and transactions 🚧
+#### DID Wallet 🚧
+#### RL Wallet 🚧
 
-## 快速开始
+## Quick Start
 
-### 安装
+### Install
 
 ``` php
-composer require fenguoz/chinilla-php
+composer require chinilla/chinilla-php
 ```
 
 ### 接口调用
 
 ``` php
-/* 节点(Full Node) */
+/* (Full Node) */
 $fullNodeConfig = [
     'base_uri' => 'https://localhost:8555',
     'verify' => false,
@@ -101,7 +101,7 @@ $info = $fullNode->getNetworkInfo();
 // $info->network_name      vanillanet
 // $info->network_prefix    hcx
 
-/* 钱包(Wallet) */
+/* (Wallet) */
 $walletConfig = [
     'base_uri' => 'https://localhost:9256',
     'verify' => false,
@@ -113,14 +113,3 @@ $api = new \Chinilla\Api(new \GuzzleHttp\Client($walletConfig));
 $wallet = new Chinilla\Wallet($api);
 $info = $wallet->getNetworkInfo();
 ```
-
-## 计划
-
-- 新增新接口
-- 新增参数和响应检验类
-- 完善文档
-- ...
-
-## 🌟🌟
-
-[![Stargazers over time](https://starchart.cc/Fenguoz/chinilla-php.svg)](https://starchart.cc/Fenguoz/chinilla-php)
