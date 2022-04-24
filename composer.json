@@ -1,19 +1,20 @@
 {
-    "name": "fenguoz/chia-php",
-    "description": "Supports functions such as obtaining current blockchain information, obtaining current altitude, obtaining current network information, creating a new wallet, generating mnemonic words, initiating transactions, and obtaining transaction records in Chia’s XCH.",
+    "name": "chinilla/chinilla-php",
+    "description": "Supports functions such as obtaining current blockchain information, obtaining current altitude, obtaining current network information, creating a new wallet, generating mnemonic words, initiating transactions, and obtaining transaction records in Chinilla’s HCX.",
+    "version": "1.0.0",
     "keywords": [
         "php",
         "rpc",
-        "chia",
-        "xch"
+        "chinilla",
+        "hcx"
     ],
     "type": "library",
-    "homepage": "https://github.com/Fenguoz/chia-php",
+    "homepage": "https://github.com/Chinilla/chinilla-php",
     "license": "MIT",
     "authors": [
         {
-            "name": "Fenguoz",
-            "email": "243944672@qq.com"
+            "name": "Edward Teach",
+            "email": "edward@chinilla.com"
         }
     ],
     "require": {
@@ -24,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Chia\\": "src/"
+            "Chinilla\\": "src/"
         }
     },
     "autoload-dev": {

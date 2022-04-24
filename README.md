@@ -1,8 +1,8 @@
-<h1 align="center">Chia-PHP</h1>
+<h1 align="center">Chinilla-PHP</h1>
 
 ## 概述
 
-Chia-PHP 支持奇亚的 XCH 中获取当前区块链信息、获取当前高度、获取当前网络信息、创建新钱包、生成助记词、发起交易、获取交易记录等功能。
+Chinilla-PHP 支持奇亚的 HCX 中获取当前区块链信息、获取当前高度、获取当前网络信息、创建新钱包、生成助记词、发起交易、获取交易记录等功能。
 
 ## 支持方法
 
@@ -81,7 +81,7 @@ Chia-PHP 支持奇亚的 XCH 中获取当前区块链信息、获取当前高度
 ### 安装
 
 ``` php
-composer require fenguoz/chia-php
+composer require fenguoz/chinilla-php
 ```
 
 ### 接口调用
@@ -95,11 +95,11 @@ $fullNodeConfig = [
     'ssl_key' => '/your/private_full_node.key/path',// private_full_node.key
 ];
 
-$api = new \Chia\Api(new \GuzzleHttp\Client($fullNodeConfig));
-$fullNode = new Chia\FullNode($api);
+$api = new \Chinilla\Api(new \GuzzleHttp\Client($fullNodeConfig));
+$fullNode = new Chinilla\FullNode($api);
 $info = $fullNode->getNetworkInfo();
-// $info->network_name      mainnet
-// $info->network_prefix    xch
+// $info->network_name      vanillanet
+// $info->network_prefix    hcx
 
 /* 钱包(Wallet) */
 $walletConfig = [
@@ -109,8 +109,8 @@ $walletConfig = [
     'ssl_key' => '/your/private_wallet.key/path', // private_wallet.key
 ];
 
-$api = new \Chia\Api(new \GuzzleHttp\Client($walletConfig));
-$wallet = new Chia\Wallet($api);
+$api = new \Chinilla\Api(new \GuzzleHttp\Client($walletConfig));
+$wallet = new Chinilla\Wallet($api);
 $info = $wallet->getNetworkInfo();
 ```
 
@@ -123,4 +123,4 @@ $info = $wallet->getNetworkInfo();
 
 ## 🌟🌟
 
-[![Stargazers over time](https://starchart.cc/Fenguoz/chia-php.svg)](https://starchart.cc/Fenguoz/chia-php)
+[![Stargazers over time](https://starchart.cc/Fenguoz/chinilla-php.svg)](https://starchart.cc/Fenguoz/chinilla-php)

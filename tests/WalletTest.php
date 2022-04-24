@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This file is part of the chia-php package
+ * This file is part of the chinilla-php package
  *
- * @category chia-php
- * @package  chia-php
+ * @category chinilla-php
+ * @package  chinilla-php
  * @author   Fenguoz <243944672@qq.com>
- * @license  https://github.com/Fenguoz/chia-php/blob/master/LICENSE MIT
- * @link     https://github.com/Fenguoz/chia-php
+ * @license  https://github.com/Fenguoz/chinilla-php/blob/master/LICENSE MIT
+ * @link     https://github.com/Fenguoz/chinilla-php
  */
 
 namespace Tests;
 
-use Chia\Api;
-use Chia\Wallet;
+use Chinilla\Api;
+use Chinilla\Wallet;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 
@@ -27,7 +27,7 @@ class WalletTest extends TestCase
         'your',
         'mnemonic'
     ];
-    const ADDRESS = 'xch14c5....';
+    const ADDRESS = 'hcx14c5....';
     const COIN_NAME = '0x6670bce2194f74bc02c9becc6266fa7935166cf204859a6760c451b1f1d3ca8d';
     const PUZZLE_HASH = '0xae2910a112f9e6bf435a4b1fa96fd899ec12902312f89f67061b6d61fc3ee3ef';
     const FILE_PATH = '/this/is/file/path';

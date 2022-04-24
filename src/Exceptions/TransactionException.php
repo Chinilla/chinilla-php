@@ -1,6 +1,6 @@
 <?php
 
-namespace Chia\Exceptions;
+namespace Chinilla\Exceptions;
 
 class TransactionException extends \Exception
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Chia\Interfaces;
+namespace Chinilla\Interfaces;
 
 interface FullNodeInterface
 {

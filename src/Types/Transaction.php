@@ -1,6 +1,6 @@
 <?php
 
-namespace Chia\Types;
+namespace Chinilla\Types;
 
 class Transaction
 {

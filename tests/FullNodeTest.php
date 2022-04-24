@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This file is part of the chia-php package
+ * This file is part of the chinilla-php package
  *
- * @category chia-php
- * @package  chia-php
+ * @category chinilla-php
+ * @package  chinilla-php
  * @author   Fenguoz <243944672@qq.com>
- * @license  https://github.com/Fenguoz/chia-php/blob/master/LICENSE MIT
- * @link     https://github.com/Fenguoz/chia-php
+ * @license  https://github.com/Fenguoz/chinilla-php/blob/master/LICENSE MIT
+ * @link     https://github.com/Fenguoz/chinilla-php
  */
 
 namespace Tests;
 
-use Chia\Api;
-use Chia\FullNode;
+use Chinilla\Api;
+use Chinilla\FullNode;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 

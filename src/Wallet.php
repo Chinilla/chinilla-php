@@ -1,10 +1,10 @@
 <?php
 
-namespace Chia;
+namespace Chinilla;
 
-use Chia\Exceptions\ChiaErrorException;
-use Chia\Interfaces\WalletInterface;
-use Chia\Types\Address;
+use Chinilla\Exceptions\ChinillaErrorException;
+use Chinilla\Interfaces\WalletInterface;
+use Chinilla\Types\Address;
 
 class Wallet implements WalletInterface
 {
@@ -20,7 +20,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return true;
     }
@@ -30,7 +30,7 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/get_public_keys');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->public_key_fingerprints;
     }
@@ -42,7 +42,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException('The fingerprint not exist');
+            throw new ChinillaErrorException('The fingerprint not exist');
         }
         return $body->private_key;
     }
@@ -52,7 +52,7 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/generate_mnemonic');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->mnemonic;
     }
@@ -65,7 +65,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->fingerprint;
     }
@@ -77,7 +77,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return true;
     }
@@ -87,7 +87,7 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/delete_all_keys');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return true;
     }
@@ -97,7 +97,7 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/get_sync_status');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         unset($body->success);
         return $body;
@@ -108,7 +108,7 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/get_height_info');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->height;
     }
@@ -118,7 +118,7 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/get_network_info');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         unset($body->success);
         return $body;
@@ -129,7 +129,7 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/get_wallets');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->wallets;
     }
@@ -137,33 +137,33 @@ class Wallet implements WalletInterface
     public function createNewWallet($params)
     {
         if (!isset($params['host']) || empty($params['host'])) {
-            throw new ChiaErrorException('host cannot be empty');
+            throw new ChinillaErrorException('host cannot be empty');
         }
         if (!isset($params['wallet_type']) || empty($params['wallet_type'])) {
-            throw new ChiaErrorException('wallet_type cannot be empty');
+            throw new ChinillaErrorException('wallet_type cannot be empty');
         }
 
         if (!in_array($params['wallet_type'], ['cc_wallet', 'rl_wallet', 'did_wallet'])) {
-            throw new ChiaErrorException('wallet_type error');
+            throw new ChinillaErrorException('wallet_type error');
         }
 
         if ($params['wallet_type'] == 'cc_wallet') {
             if (!isset($params['mode']) || empty($params['mode'])) {
-                throw new ChiaErrorException('mode cannot be empty');
+                throw new ChinillaErrorException('mode cannot be empty');
             }
             if ($params['mode'] == 'new') {
             } elseif ($params['mode'] == 'existing') {
             }
         } elseif ($params['wallet_type'] == 'rl_wallet') {
             if (!isset($params['rl_type']) || empty($params['rl_type'])) {
-                throw new ChiaErrorException('rl_type cannot be empty');
+                throw new ChinillaErrorException('rl_type cannot be empty');
             }
             if ($params['rl_type'] == 'admin') {
             } elseif ($params['rl_type'] == 'user') {
             }
         } elseif ($params['wallet_type'] == 'did_wallet') {
             if (!isset($params['did_type']) || empty($params['did_type'])) {
-                throw new ChiaErrorException('did_type cannot be empty');
+                throw new ChinillaErrorException('did_type cannot be empty');
             }
             if ($params['did_type'] == 'new') {
             } elseif ($params['did_type'] == 'recovery') {
@@ -173,7 +173,7 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/create_new_wallet', $params);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return true;
     }
@@ -185,7 +185,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->wallet_balance;
     }
@@ -196,7 +196,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         unset($body->success);
         return $body;
@@ -209,7 +209,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->transactions;
     }
@@ -222,7 +222,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return new Address($body->address);
     }
@@ -237,7 +237,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         unset($body->success);
         return $body;
@@ -250,7 +250,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body;
     }
@@ -262,7 +262,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->count;
     }
@@ -272,7 +272,7 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/get_farmed_amount');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         unset($body->success);
         return $body;
@@ -285,7 +285,7 @@ class Wallet implements WalletInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return true;
     }
@@ -295,7 +295,7 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/get_initial_freeze_period');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->INITIAL_FREEZE_END_TIMESTAMP;
     }
@@ -305,7 +305,91 @@ class Wallet implements WalletInterface
         $body = $this->_api->post('/create_signed_transaction');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function getCatList()
+    {
+        $body = $this->_api->post('/get_cat_list');
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function catSetName($walletId)
+    {
+        $body = $this->_api->post('/cat_set_name', [
+            'wallet_id' => $walletId
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function catGetName($walletId)
+    {
+        $body = $this->_api->post('/cat_get_name', [
+            'wallet_id' => $walletId
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function getStrayCats()
+    {
+        $body = $this->_api->post('/get_stray_cats');
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function catSpend($walletId, $innerAddress, $memos, $amount, $fee)
+    {
+        $body = $this->_api->post('/cat_spend', [
+            'wallet_id' => $walletId,
+            'inner_address' => $innerAddress,
+            'memos' => $memos,
+            'amount' => $amount,
+            'fee' => $fee
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function catGetAssetId($walletId)
+    {
+        $body = $this->_api->post('/cat_get_asset_id', [
+            'wallet_id' => $walletId
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function CatAssetIdToName($assetId)
+    {
+        $body = $this->_api->post('/cat_asset_id_to_name', [
+            'asset_id' => $assetId
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
         }
         return $body;
     }

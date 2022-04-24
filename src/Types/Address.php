@@ -1,6 +1,6 @@
 <?php
 
-namespace Chia\Types;
+namespace Chinilla\Types;
 
 use IEXBase\TronAPI\Support\Base58Check;
 use IEXBase\TronAPI\Support\Hash;

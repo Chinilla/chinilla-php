@@ -1,9 +1,9 @@
 <?php
 
-namespace Chia;
+namespace Chinilla;
 
 use GuzzleHttp\Client;
-use Chia\Exceptions\ChiaErrorException;
+use Chinilla\Exceptions\ChinillaErrorException;
 
 class Api
 {
@@ -23,7 +23,7 @@ class Api
      * Abstracts some common functionality like formatting the post data
      * along with error handling.
      *
-     * @throws ChiaErrorException
+     * @throws ChinillaErrorException
      */
     public function post(string $endpoint, array $data = [], bool $returnAssoc = false)
     {
@@ -46,22 +46,22 @@ class Api
      *
      * @param bool $returnAssoc
      * @param $body
-     * @throws ChiaErrorException
+     * @throws ChinillaErrorException
      */
     private function checkForErrorResponse(bool $returnAssoc, $body)
     {
         if ($returnAssoc) {
             if (isset($body['Error'])) {
-                throw new ChiaErrorException($body['Error']);
+                throw new ChinillaErrorException($body['Error']);
             } elseif (isset($body['code']) && isset($body['message'])) {
-                throw new ChiaErrorException($body['code'] . ': ' . hex2bin($body['message']));
+                throw new ChinillaErrorException($body['code'] . ': ' . hex2bin($body['message']));
             }
         }
 
         if (isset($body->Error)) {
-            throw new ChiaErrorException($body->Error);
+            throw new ChinillaErrorException($body->Error);
         } elseif (isset($body->code) && isset($body->message)) {
-            throw new ChiaErrorException($body->code . ': ' . hex2bin($body->message));
+            throw new ChinillaErrorException($body->code . ': ' . hex2bin($body->message));
         }
     }
 }

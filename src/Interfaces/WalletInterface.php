@@ -1,8 +1,8 @@
 <?php
 
-namespace Chia\Interfaces;
+namespace Chinilla\Interfaces;
 
-use Chia\Types\Address;
+use Chinilla\Types\Address;
 
 interface WalletInterface
 {

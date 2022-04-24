@@ -1,7 +1,7 @@
 <?php
 
-namespace Chia\Exceptions;
+namespace Chinilla\Exceptions;
 
-class ChiaErrorException extends \Exception
+class ChinillaErrorException extends \Exception
 {
 }

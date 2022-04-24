@@ -1,9 +1,9 @@
 <?php
 
-namespace Chia;
+namespace Chinilla;
 
-use Chia\Exceptions\ChiaErrorException;
-use Chia\Interfaces\FullNodeInterface;
+use Chinilla\Exceptions\ChinillaErrorException;
+use Chinilla\Interfaces\FullNodeInterface;
 
 class FullNode implements FullNodeInterface
 {
@@ -17,7 +17,7 @@ class FullNode implements FullNodeInterface
         $body = $this->_api->post('/get_blockchain_state');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->blockchain_state;
     }
@@ -29,7 +29,7 @@ class FullNode implements FullNodeInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->block;
     }
@@ -43,7 +43,7 @@ class FullNode implements FullNodeInterface
         $body = $this->_api->post('/get_blocks', $params);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->blocks;
     }
@@ -55,7 +55,7 @@ class FullNode implements FullNodeInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->block_record;
     }
@@ -67,7 +67,7 @@ class FullNode implements FullNodeInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->block_record;
     }
@@ -80,7 +80,7 @@ class FullNode implements FullNodeInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->block_records;
     }
@@ -90,7 +90,7 @@ class FullNode implements FullNodeInterface
         $body = $this->_api->post('/get_unfinished_block_headers');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->headers;
     }
@@ -103,7 +103,7 @@ class FullNode implements FullNodeInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->space;
     }
@@ -115,7 +115,7 @@ class FullNode implements FullNodeInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         unset($body->success);
         return $body;
@@ -126,7 +126,7 @@ class FullNode implements FullNodeInterface
         $body = $this->_api->post('/get_initial_freeze_period');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->INITIAL_FREEZE_END_TIMESTAMP;
     }
@@ -136,7 +136,7 @@ class FullNode implements FullNodeInterface
         $body = $this->_api->post('/get_network_info');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         unset($body->success);
         return $body;
@@ -152,7 +152,7 @@ class FullNode implements FullNodeInterface
         $body = $this->_api->post('/get_coin_records_by_puzzle_hash', $params);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->coin_records;
     }
@@ -167,7 +167,7 @@ class FullNode implements FullNodeInterface
         $body = $this->_api->post('/get_coin_records_by_puzzle_hashes', $params);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->coin_records;
     }
@@ -179,7 +179,7 @@ class FullNode implements FullNodeInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->coin_record;
     }
@@ -191,7 +191,7 @@ class FullNode implements FullNodeInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->status;
     }
@@ -201,7 +201,7 @@ class FullNode implements FullNodeInterface
         $body = $this->_api->post('/get_all_mempool_tx_ids');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->tx_ids;
     }
@@ -211,7 +211,7 @@ class FullNode implements FullNodeInterface
         $body = $this->_api->post('/get_all_mempool_items');
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->mempool_items;
     }
@@ -223,7 +223,7 @@ class FullNode implements FullNodeInterface
         ]);
 
         if ($body->success == false) {
-            throw new ChiaErrorException($body->error);
+            throw new ChinillaErrorException($body->error);
         }
         return $body->mempool_item;
     }
