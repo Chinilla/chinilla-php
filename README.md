@@ -96,7 +96,7 @@ $fullNodeConfig = [
 ];
 
 $api = new \Chinilla\Api(new \GuzzleHttp\Client($fullNodeConfig));
-$fullNode = new Chinilla\FullNode($api);
+$fullNode = new \Chinilla\FullNode($api);
 $info = $fullNode->getNetworkInfo();
 // $info->network_name      vanillanet
 // $info->network_prefix    hcx
@@ -110,6 +110,6 @@ $walletConfig = [
 ];
 
 $api = new \Chinilla\Api(new \GuzzleHttp\Client($walletConfig));
-$wallet = new Chinilla\Wallet($api);
+$wallet = new \Chinilla\Wallet($api);
 $info = $wallet->getNetworkInfo();
 ```
