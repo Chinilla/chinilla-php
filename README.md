@@ -84,7 +84,7 @@ Chinilla-PHP supports the functions of obtaining current blockchain information,
 composer require chinilla/chinilla-php
 ```
 
-### 接口调用
+### Code Example
 
 ``` php
 /* (Full Node) */
