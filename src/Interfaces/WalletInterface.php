@@ -37,7 +37,16 @@ interface WalletInterface
     public function getFarmedAmount();
     public function createSignedTransaction();
 
-    // Coloured coins and trading
-    // DID Wallet
-    // RL wallet
+    // CATs
+    public function getCatList();
+    public function catSetName($walletId);
+    public function catGetName($walletId);
+    public function getStrayCats();
+    public function catSpend($walletId, $innerAddress, $memos, $amount, $fee);
+    public function catGetAssetId($walletId);
+    public function CatAssetIdToName($assetId);
+    
+    // Offers
+    public function checkOfferValidity($offer);
+    public function getOfferSummary($offer);
 }
