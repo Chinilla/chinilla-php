@@ -1,7 +1,7 @@
 {
     "name": "chinilla/chinilla-php",
     "description": "Supports functions such as obtaining current blockchain information, obtaining current altitude, obtaining current network information, creating a new wallet, generating mnemonic words, initiating transactions, and obtaining transaction records in Chinilla’s HCX.",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "keywords": [
         "php",
         "rpc",

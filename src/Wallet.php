@@ -243,6 +243,21 @@ class Wallet implements WalletInterface
         return $body;
     }
 
+    public function sendTransactionMulti($walletId, $additions, $fee)
+    {
+        $body = $this->_api->post('/send_transaction_multi', [
+            'wallet_id' => $walletId,
+            'additions' => $additions,
+            'fee' => $fee
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        unset($body->success);
+        return $body;
+    }
+
     public function createBackup($filePath)
     {
         $body = $this->_api->post('/create_backup', [
