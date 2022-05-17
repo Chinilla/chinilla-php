@@ -196,6 +196,16 @@ class FullNode implements FullNodeInterface
         return $body->status;
     }
 
+    public function getConnections()
+    {
+        $body = $this->_api->post('/get_connections');
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
     public function getAllMempoolTxIds()
     {
         $body = $this->_api->post('/get_all_mempool_tx_ids');
