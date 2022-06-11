@@ -432,4 +432,129 @@ class Wallet implements WalletInterface
         }
         return $body;
     }
+
+### NFT Functions ###
+
+    public function createNewNftWallet($did_id, $name = null)
+    {
+        $body = $this->_api->post('/create_new_nft_wallet', [
+            'did_id' => $did_id
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function mintNft(
+        $wallet_id,
+        $royalty_address,
+        $target_address,
+        $hash,
+        $uris,
+        $meta_hash = "00",
+        $meta_uris= [] ,
+        $license_hash = "00",
+        $license_uris = [],
+        $series_total = 1,
+        $series_number = 1,
+        $fee = 0,
+        $royalty_percentage = 0,
+        $did_id = null
+    )
+    {
+        $body = $this->_api->post('/mint_nft', [
+            "wallet_id" => $wallet_id,
+            "royalty_address" => $royalty_address,
+            "target_address" => $target_address,
+            "hash" => $hash,
+            "uris" => $uris,
+            "meta_hash" => $meta_hash,
+            "meta_uris" => $meta_uris,
+            "license_hash" => $license_hash,
+            "license_uris" => $license_uris,
+            "series_total" => $series_total,
+            "series_number" => $series_number,
+            "fee" => $fee,
+            "royalty_percentage" => $royalty_percentage,
+            "did_id" => $did_id
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function addUriToNft($wallet_id, $nft_coin_id, $key, $uri, $fee)
+    {
+        $body = $this->_api->post('/add_uri_to_nft', [
+            "wallet_id" => $wallet_id,
+            "nft_coin_id" => $nft_coin_id,
+            "key" => $key,
+            "uri" => $uri,
+            "fee" => $fee
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function get_nft_info($coin_id, $latest = true)
+    {
+        $body = $this->_api->post('/add_uri_to_nft', [
+            "coin_id" => $coin_id,
+            "latest" => $latestS
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function transferNft($wallet_id, $nft_coin_id, $target_address, $fee)
+    {
+        $body = $this->_api->post('/transfer_nft', [
+            "wallet_id" => $wallet_id,
+            "nft_coin_id" => $nft_coin_id,
+            "target_address" => $target_address,
+            "fee" => $fee
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function list_nfts($wallet_id)
+    {
+        $body = $this->_api->post('/list_nfts', [
+            "wallet_id" => $wallet_id
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function setNftDid($wallet_id, $did_id, $nft_coin_id, $fee)
+    {
+        $body = $this->_api->post('/transfer_nft', [
+            "wallet_id" => $wallet_id,
+            "did_id" => $did_id,
+            "nft_coin_id" => $nft_coin_id,
+            "fee" => $fee
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
 }
