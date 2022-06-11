@@ -409,6 +409,7 @@ class Wallet implements WalletInterface
         return $body;
     }
 
+### Offers ###
     public function checkOfferValidity($offer)
     {
         $body = $this->_api->post('/check_offer_validity', [
@@ -425,6 +426,19 @@ class Wallet implements WalletInterface
     {
         $body = $this->_api->post('/get_offer_summary', [
             'offer' => $offer
+        ]);
+
+        if ($body->success == false) {
+            throw new ChinillaErrorException($body->error);
+        }
+        return $body;
+    }
+
+    public function getOffer($trade_id, $file_contents = false)
+    {
+        $body = $this->_api->post('/get_offer_summary', [
+            'trade_id' => $trade_id,
+            'file_contents' => $file_contents
         ]);
 
         if ($body->success == false) {

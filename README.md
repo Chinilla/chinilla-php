@@ -66,11 +66,25 @@ Chinilla-PHP supports the functions of obtaining current blockchain information,
 - ✅ Get transaction records through `transaction hash` `getTransaction()`
 - ✅ Get transaction records `getTransactions()`
 - ✅ Get new address `getNextAddress()`
-- ✅Initiate transaction `sendTransaction()`
+- ✅ Initiate transaction `sendTransaction()`
 - ✅ Create backup `createBackup()`
 - ✅ Get the number of wallet transactions `getTransactionCount()`
 - ✅ Get farm reward information `getFarmedAmount()`
 - 🚧 `createSignedTransaction()`
+
+#### Offers
+- ✅ Check Offer Validity `checkOfferValidity()`
+- ✅ Get Offer Summary `getOfferSummary()`
+- ✅ Get Offer `getOffer()`
+
+#### NFT Wallet
+- ✅ Create New NFT Wallet `createNewNftWallet()`
+- ✅ All Uri to NFT `addUriToNft()`
+- ✅ Get NFT Information `get_nft_info()`
+- ✅ Transfer NFT `transferNft()`
+- ✅ List NFTs `list_nfts()`
+- ✅ Set NFT DID `setNftDid()`
+- ✅ GMint NFT `mintNft()`
 
 #### Other currencies and transactions 🚧
 #### DID Wallet 🚧
